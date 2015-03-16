@@ -1,0 +1,28 @@
+{
+  "name": "node-bin",
+  "version": "0.0.1",
+  "description": "A collection of Node.js scripts for use in a Linux-based terminal.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tomkay94/node-bin.git"
+  },
+  "keywords": [
+    "command line",
+    "cli",
+    "bin",
+    "scripts",
+    "node"
+  ],
+  "author": "Thanasi Karachotzitis <thanasi.karachotzitis@mail.utoronto.ca> (http://thanasi.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tomkay94/node-bin/issues"
+  },
+  "homepage": "https://github.com/Tomkay94/node-bin"
+}
