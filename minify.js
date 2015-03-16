@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const
-  fs = require('fs');
+  fs        = require('fs')
+  commander = require('commander');
 
 /* Remove all white space from str. */
 function minifyString(str) {
