@@ -2,6 +2,13 @@
 
 A collection of Node.js scripts for use in a Linux-based terminal.
 
+## Installation
+
+To start using `node-bin` scripts, just download
+the module and install it globally via `npm`:
+
+  `npm install node-bin -g`
+
 ## Scripts
 
 ### minify.js
