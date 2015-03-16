@@ -21,7 +21,7 @@ white space. The original file is not affected.
 #### Usage
 
 ```
-$ node minify <path-to-file>
+$ minify -f <path-to-file>
 ```
 
 #### Example
@@ -35,7 +35,7 @@ What a great text file.     It even has a few     tabs.
 ```
 
 ```
-$ node minify myFile.txt
+$ minify -f myFile.txt
 ```
 
 ##### After
