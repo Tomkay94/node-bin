@@ -28,7 +28,7 @@ $ node minify <path-to-file>
 
 ##### Before
 
-`myFile.txt`
+`myFile.min.txt`
 ```
 This is my text file. It has lots of spaces and new lines.
 What a great text file.     It even has a few     tabs.
