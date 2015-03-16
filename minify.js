@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 const
   fs = require('fs');
 
 /* Remove all white space from str. */
 function minifyString(str) {
- return str.replace(/\s/g, '');
+  return str.replace(/\s/g, '');
 };
 
 /* Insert .min extension to FileName. */
@@ -16,8 +18,7 @@ function addMinExtension(FileName) {
   return minFileName;
 };
 
-/* Removes white space from file and
-   writes new minified file. */
+/* Removes white space from file and writes minified data to a new file. */
 (function main() {
 
   /* Read the file into a string */
