@@ -2,6 +2,7 @@
 
 const
   fs      = require('fs')
+  colours = require('colors')
   program = require('commander');
 
 program
@@ -18,8 +19,11 @@ if (program.file) {
     , minFileName    = addMinExtension(filePath);
 
   var minifiedFile = fs.writeFile(minFileName, minFileContent, function(err) {
-    if (err) { throw err; };
-    console.log('-- ' + filePath + ' minified to ' + minFileName + ' --');
+    if (err) {
+      console.log(filePath.blue.underline + ' minify unsuccessful'.red);
+      throw err;
+    };
+    console.log(filePath.blue.underline + ' minified successfully to '.green + minFileName.blue.underline);
   });
 };
 
@@ -33,10 +37,10 @@ function minifyString(str) {
 };
 
 /* Insert .min extension to FileName. */
-function addMinExtension(FileName) {
-  var fileExtIndex = FileName.indexOf('.')
-    , filePrefix   = FileName.slice(0, fileExtIndex)
-    , fileExten    = FileName.slice(fileExtIndex, FileName.length)
+function addMinExtension(fileName) {
+  var fileExtIndex = fileName.indexOf('.')
+    , filePrefix   = fileName.slice(0, fileExtIndex)
+    , fileExten    = fileName.slice(fileExtIndex, fileName.length)
     , minFileName  = filePrefix + '.min' + fileExten;
 
   return minFileName;
