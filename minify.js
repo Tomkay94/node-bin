@@ -43,7 +43,7 @@ function minifyString(str) {
 
 /* Insert .min extension to FileName. */
 function addMinExtension(fileName) {
-  var fileExtIndex = fileName.indexOf('.')
+  var fileExtIndex = fileName.lastIndexOf('.')
     , filePrefix   = fileName.slice(0, fileExtIndex)
     , fileExten    = fileName.slice(fileExtIndex, fileName.length)
     , minFileName  = filePrefix + '.min' + fileExten;
