@@ -18,27 +18,18 @@ if (program.fileEncodeType) {
 
 if (program.file) {
 
+  /* Determine the file encoding type, default to utf8. */
   var encodeType = (typeof encodeType === 'undefined')
     ? 'utf8'
     : encodeType
 
-  /* Read the file into a string */
+  /* Prepare the write contents */
   var filePath       = program.file
     , fileContent    = fs.readFileSync(filePath, encodeType)
     , minFileContent = minifyString(fileContent)
     , minFileName    = addMinExtension(filePath);
 
-  var minifiedFile = fs.writeFile(minFileName, minFileContent, function(err) {
-    if (err) {
-      console.log(filePath.blue.underline + ' minify unsuccessful'.red);
-      throw err;
-    };
-    console.log(
-      filePath.blue.underline +
-      ' minified successfully to '.green +
-      minFileName.blue.underline
-    );
-  });
+  writeMinifiedFile(minFileName, minFileContent, filePath);
 };
 
 /***************************************/
@@ -58,4 +49,18 @@ function addMinExtension(fileName) {
     , minFileName  = filePrefix + '.min' + fileExten;
 
   return minFileName;
+};
+
+function writeMinifiedFile(minFileName, minFileContent, filePath) {
+  var minifiedFile = fs.writeFile(minFileName, minFileContent, function(err) {
+    if (err) {
+      console.log(filePath.blue.underline + ' minify unsuccessful'.red);
+      throw err;
+    };
+    console.log(
+      filePath.blue.underline +
+      ' minified successfully to '.green +
+      minFileName.blue.underline
+    );
+  });
 };
