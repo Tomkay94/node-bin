@@ -8,8 +8,8 @@
     "commander": "^2.7.1"
   },
   "bin": {
-    "minify": "minify.js",
-    "repoReport": "repoReport.js"
+    "minify": "scripts/minify.js",
+    "repoReport": "scripts/repoReport.js"
   },
   "devDependencies": {},
   "scripts": {
