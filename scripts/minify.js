@@ -2,7 +2,7 @@
 
 const
     fs      = require('fs')
-  , colours = require('colors')
+  , colors  = require('colors')
   , program = require('commander');
 
 program

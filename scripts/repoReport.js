@@ -2,6 +2,7 @@
 
 const
     fs  	        = require('fs')
+  , colors        = require('colors')
  	, program				= require('commander')
   , child_process = require('child_process')
 
@@ -26,10 +27,17 @@ function createCommitLog(commitFileName) {
   var getLog = "git log --date=iso --pretty=format:'%h%x09%an%x09%ad%x09%s'";
 	child_process.exec(getLog, function(err, fileData) {
 		fs.writeFile(commitFileName, fileData, function(err) {
-			if (err) {
-				throw err;
-			};
-			console.log("written successfully to" + commitFileName);
+      if (err) {
+        console.log(
+          commitFileName.blue.underline +
+          ' failed to be generated successfully'.red
+        );
+        throw err;
+      };
+      console.log(
+        commitFileName.blue.underline +
+        ' was successfully generated'.green
+      );
 		});
 	});
 };
