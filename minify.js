@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
 const
-  fs      = require('fs')
-  colours = require('colors')
-  program = require('commander');
+    fs      = require('fs')
+  , colours = require('colors')
+  , program = require('commander');
 
 program
   .version('0.0.1')
-  .description('A command line script to minify files.')
+  .description('A script to minify files.')
   .option('-f, --file <file>', 'Specify the file to minify.')
   .option('-e, --file-encode-type <encode-type>', 'Specify the encoding of the file being read.')
   .parse(process.argv);
 
 if (program.fileEncodeType) {
   var encodeType = program.fileEncodeType;
-}
+};
 
 if (program.file) {
 
@@ -51,6 +51,7 @@ function addMinExtension(fileName) {
   return minFileName;
 };
 
+/* Write the minified file content to a file. */
 function writeMinifiedFile(minFileName, minFileContent, filePath) {
   var minifiedFile = fs.writeFile(minFileName, minFileContent, function(err) {
     if (err) {

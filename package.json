@@ -1,6 +1,6 @@
 {
   "name": "node-bin-xt",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A collection of Node.js scripts for use in a Linux-based terminal.",
   "preferGlobal": "true",
   "dependencies": {
@@ -8,7 +8,8 @@
     "commander": "^2.7.1"
   },
   "bin": {
-    "minify": "minify.js"
+    "minify": "minify.js",
+    "repoReport": "repoReport.js"
   },
   "devDependencies": {},
   "scripts": {
