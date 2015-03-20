@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
 const
-    fs  	        = require('fs')
+    fs  	      = require('fs')
   , colors        = require('colors')
- 	, program				= require('commander')
+  , program       = require('commander')
   , child_process = require('child_process')
 
 program
-	.version('0.0.1')
-	.description('A script to write a given repository\'s commit history to a file.')
-	.option('-f, --file-name <file>', 'Specify the name of the commit log file.')
-	.parse(process.argv);
+    .version('0.0.1')
+    .description('A script to write a given repository\'s commit history to a file.')
+    .option('-f, --file-name <file>', 'Specify the name of the commit log file.')
+    .parse(process.argv);
 
 if (program.fileName) {
-	var commitFileName = program.fileName + '.iso.tsv.txt';
-	createCommitLog(commitFileName);
-	return;
+    var commitFileName = program.fileName + '.iso.tsv.txt';
+    createCommitLog(commitFileName);
+    return;
 };
 
 /***************************************/
@@ -24,20 +24,20 @@ if (program.fileName) {
 
 /* Write the commit log to a file.  */
 function createCommitLog(commitFileName) {
-  var getLog = "git log --date=iso --pretty=format:'%h%x09%an%x09%ad%x09%s'";
-	child_process.exec(getLog, function(err, fileData) {
-		fs.writeFile(commitFileName, fileData, function(err) {
-      if (err) {
-        console.log(
-          commitFileName.blue.underline +
-          ' failed to be generated successfully'.red
-        );
-        throw err;
-      };
-      console.log(
-        commitFileName.blue.underline +
-        ' was successfully generated'.green
-      );
-		});
-	});
+    var getLog = "git log --date=iso --pretty=format:'%h%x09%an%x09%ad%x09%s'";
+    child_process.exec(getLog, function(err, fileData) {
+        fs.writeFile(commitFileName, fileData, function(err) {
+            if (err) {
+                console.log(
+	              commitFileName.blue.underline +
+	              ' failed to be generated successfully'.red
+                );
+                throw err;
+            };
+            console.log(
+              commitFileName.blue.underline +
+              ' was successfully generated'.green
+            );
+        });
+    });
 };
